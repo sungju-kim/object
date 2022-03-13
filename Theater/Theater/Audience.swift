@@ -9,14 +9,6 @@ class Audience {
     }
     
     func buy(ticket: Ticket) -> Int? {
-        guard let bag = bag else {return nil}
-        if bag.hasInvitaion {
-            bag.setTicket(with: ticket)
-            return 0
-        } else {
-            bag.setTicket(with: ticket)
-            bag.minusAmount(amount: ticket.getFee)
-            return ticket.getFee
-        }
+        return bag?.hold(ticket: ticket)
     }
 }
