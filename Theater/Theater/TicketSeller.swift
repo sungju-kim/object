@@ -9,8 +9,6 @@ class TicketSeller {
     }
     
     func sellTo(audience: Audience) {
-        guard let ticket = ticketOffice?.getTicket else {return}
-        guard let fee = audience.buy(ticket: ticket) else {return}
-        ticketOffice?.plusAmount(amount: fee)
+        ticketOffice?.sellTicketTo(audience: audience)
     }
 }

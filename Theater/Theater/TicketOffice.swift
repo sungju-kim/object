@@ -14,6 +14,11 @@ class TicketOffice {
         self.tickets = tickets
     }
     
+    func sellTicketTo(audience: Audience) {
+        guard let fee = audience.buy(ticket: getTicket) else {return}
+        plusAmount(amount: fee)
+    }
+    
     func minusAmount(amount : Int) {
         self.amount -= amount
     }
